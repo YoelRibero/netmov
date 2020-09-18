@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NetMov</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="home">
+    <aside class="sidebar__left">
+      <div class="wrapper">
+        <section class="sidebar__logo">
+          <h4 class="sidebar__left--title">
+            Net<span>Mov</span>
+          </h4>
+        </section>
+      </div>
+      <nav class="sidebar__nav">
+        <ul class="nav__list">
+          <li class="nav__item selected">
+            <a href="/">
+              <img src="./src/images/home.svg" alt="Home">
+              Home
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="content">
+      <div class="content__background">
+        <img src="./src/images/hero-image.jpg" alt="Hero">
+      </div>
+      <div class="content__overlay"></div>
+      <div class="wrapper">
+        <div class="search">
+          <section class="form__search">
+            <img src="./src/images/lupa.svg" alt="Search icon">
+            <form action="" id="search">
+              <input type="text" placeholder="Search your favourite movie">
+            </form>
+          </section>
+          <section class="search__results">
+            <ul>
+            </ul>
+          </section>
+        </div>
+        <section class="main__content">
+          <div class="featuring">
+            <h2 class="featuring__title">Featuring Movie of the Week</h2>
+            <div class="featuring__content" id="featuring">
+
+            </div>
+          </div>
+        </section>
+        <section class="main__list">
+          <div class="movies__list">
+            <div class="movies__list--content">
+              <h2 class="movies__list--title">Action Movies</h2>
+              <div class="movies__list--list" id="action">
+                <img src="./src/images/loader.svg" alt="Loader">
+              </div>
+            </div>
+            <div class="movies__list--content">
+              <h2 class="movies__list--title">Drama Movies</h2>
+              <div class="movies__list--list" id="drama">
+                <img src="./src/images/loader.svg" alt="Loader">
+              </div>
+            </div>
+            <div class="movies__list--content">
+              <h2 class="movies__list--title">Comedy Movies</h2>
+              <div class="movies__list--list" id="comedy">
+                <img src="./src/images/loader.svg" alt="Loader">
+              </div>
+            </div>
+            <div class="movies__list--content">
+              <h2 class="movies__list--title">Animation Movies</h2>
+              <div class="movies__list--list" id="animation">
+                <img src="./src/images/loader.svg" alt="Loader">
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <aside class="sidebar__rigth">
+      <div class="wrapper">
+        <section class="user connected">
+          <figure class="user__image">
+            <img src="./src/images/man.svg" alt="User Avatar">
+          </figure>
+          <div class="user__info">
+            <span class="user__name">Yoel Ribero</span>
+            <span class="user__social">@riberoyoel</span>
+          </div>
+        </section>
+        <section class="user__list">
+          <h4 class="user__list--title">My friends</h4>
+          <nav class="users__list">
+            <img src="./src/images/loader.svg" alt="Loader">
+          </nav>
+        </section>
+      </div>
+    </aside>
+  </div>
+  <div class="overlay" id="overlay">
+  </div>
+  <div class="modal movie-modal" id="modal">
+    <div class="modal-content">
+    </div>
+    <div class="modal-buttons">
+      <button class="modal-btn primary" id="hide-modal">Close Modal</button>
+    </div>
+  </div>
+</body>
+</html>
