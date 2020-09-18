@@ -35,7 +35,6 @@ export const renderUsers = (listUsers, $container) => {
 }
 
 export const renderFeaturingMovie = (movie, $container) => {
-  console.log(movie)
   const { background_image_original: backgroundMovie } = movie
   backgroundMovie && document.querySelector('.content__background img').setAttribute('src', backgroundMovie)
   // Evalue class of rating
