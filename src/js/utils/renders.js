@@ -8,7 +8,7 @@ export const renderMovieList = (list, $container, category) => {
   list.forEach(movie => {
     const HTMLString = movieTemplate(movie, category)
     const movieElement = createTemplate(HTMLString)
-    movie.medium_cover_image && $container.append(movieElement)
+    $container.append(movieElement)
     movieElement.addEventListener('click', async () => {
       const elementSelected = document.querySelector('.movies__list--item.selected')
       elementSelected && elementSelected.classList.remove('selected')
@@ -16,7 +16,7 @@ export const renderMovieList = (list, $container, category) => {
       const movie = await findMovie(movieElement.dataset.id, movieElement.dataset.category)
       $featuringTitle && $featuringTitle.remove()
       $featuringContainer.children[0].remove()
-      renderFeaturingMovie(movie, $featuringContainer)
+      renderFeaturingMovie(movie)
     })
   })
 }
@@ -34,7 +34,7 @@ export const renderUsers = (listUsers, $container) => {
   $container.children[0].remove()
 }
 
-export const renderFeaturingMovie = (movie, $container) => {
+export const renderFeaturingMovie = movie => {
   const { background_image_original: backgroundMovie } = movie
   backgroundMovie && document.querySelector('.content__background img').setAttribute('src', backgroundMovie)
   // Evalue class of rating
@@ -48,5 +48,5 @@ export const renderFeaturingMovie = (movie, $container) => {
   }
   const HTMLString = featuringTemplate(movie, classRating)
   const movieElement = createTemplate(HTMLString)
-  $container.append(movieElement)
+  $featuringContainer.append(movieElement)
 }

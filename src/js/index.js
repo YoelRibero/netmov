@@ -9,7 +9,7 @@ import { createTemplate, templateSearchResults } from './utils/templates'
 (async function() {
   // Render featuring Movie
   const featuringMovie = await getMovies(`${BASE_API_MOVIES}/list_movies.json?sort=seeds&limit=1`)
-  renderFeaturingMovie(featuringMovie[0], $featuringContainer)
+  renderFeaturingMovie(featuringMovie[0])
   // Render Movies by genre
   moviesGenre.forEach(async genre => {
     const list = await getMovies(`${BASE_API_MOVIES}/list_movies.json?genre=${genre.category}`)
@@ -33,18 +33,22 @@ import { createTemplate, templateSearchResults } from './utils/templates'
     const keyword = search.querySelector('input').value
     searchResults.classList.add('active')
     const moviesSearch = await getMovies(`${BASE_API_MOVIES}/list_movies.json?query_term=${keyword}`)
+    const ul = document.createElement('ul')
+    searchResults.append(ul)
     try {
       moviesSearch.forEach(movie => {
         const HTMLString = templateSearchResults(movie)
         const movieElement = createTemplate(HTMLString)
-        searchResults.querySelector('ul').append(movieElement)
+        ul.append(movieElement)
         movieElement.addEventListener('click', async () => {
           searchResults.classList.remove('active')
           const name = movieElement.dataset.name
           const movieSearch = await getMovies(`${BASE_API_MOVIES}/list_movies.json?query_term=${name}`)
           $featuringTitle && $featuringTitle.remove()
           $featuringContainer.children[0].remove()
-          renderFeaturingMovie(movieSearch[0], $featuringContainer)
+          renderFeaturingMovie(movieSearch[0])
+          search.reset()
+          searchResults.children[0].remove()
         })
       })
     } catch(err) {

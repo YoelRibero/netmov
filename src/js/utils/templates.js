@@ -17,7 +17,6 @@ export const featuringTemplate = (movie, classRating) => {
           <p class="featuring__description">${movie.description_full}</p>
           <div class="featuring__extra">
             <div class="featuring__rating">
-              <span>Rating</span>
               <span class="featuring__rating--number ${classRating}">${movie.rating}</span>
             </div>
             <div class="featuring__genres">

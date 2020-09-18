@@ -62,19 +62,7 @@ button {
 /* SIDEBARS */
 .sidebar__left, .sidebar__rigth {
   background-color: var(--primary-color);
-  position: fixed;
-  top: 0;
-  bottom: 0;
-}
-
-.sidebar__left {
-  right: 85%;
-  left: 0;
-}
-
-.sidebar__rigth {
-  left: 85%;
-  right: 0;
+  display: none;
 }
 
 .sidebar__left--title {
@@ -87,6 +75,36 @@ button {
 
 .sidebar__left--title span {
   color: var(--title-color);
+}
+
+@media screen and (min-width: 1024px) {
+  .sidebar__left, .sidebar__rigth {
+    display: block;
+    background-color: var(--primary-color);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+  }
+
+  .sidebar__left {
+    right: 80%;
+    left: 0;
+  }
+
+  .sidebar__rigth {
+    left: 80%;
+    right: 0;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .sidebar__left {
+    right: 85%;
+  }
+
+  .sidebar__rigth {
+    left: 85%;
+  }
 }
 
 /* NAV */
@@ -202,20 +220,13 @@ button {
 
 /* MAIN */
 .content {
-  position: absolute;
   background-color: var(--second-color);
-  top: 0;
-  left: 15%;
-  right: 15%;
-  min-height: 100vh;
 }
 
 .content__background {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 50%;
+  height: 50%;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -231,6 +242,8 @@ button {
 
 .content__background img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .content__overlay {
@@ -240,6 +253,26 @@ button {
   right: 0;
   left: 0;
   background-color: rgba(82, 87, 93, .7);
+}
+
+@media screen and (min-width: 1024px) {
+  .content {
+    position: absolute;
+    top: 0;
+    left: 20%;
+    right: 20%;
+    min-height: 100vh;
+  }
+  .content__background {
+    height: 40%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .content {
+    left: 15%;
+    right: 15%;
+  }
 }
 
 /* SEARCH */
@@ -274,7 +307,8 @@ button {
 
 .search__results.active {
   display: block;
-  width: 300px;
+  width: auto;
+  max-width: 300px;
   background: var(--light-color);
   border-radius: 3px;
   position: absolute;
@@ -293,18 +327,24 @@ button {
   border-bottom: 0;
 }
 
+@media screen and (min-width: 1024px) {
+  .search__results.active {
+    min-width: 300px;
+  }
+}
+
 /* FEATURING MOVIE */
 .featuring__title {
   margin-bottom: 1rem;
+  font-size: 22px;
 }
 
 .featuring__movie {
-  display: flex;
   margin-bottom: 2rem;
 }
 
 .featuring__image {
-  width: 20%;
+  width: 35%;
   flex-shrink: 0;
   margin-right: 2rem;
 }
@@ -316,15 +356,14 @@ button {
 }
 
 .featuring__movie--title {
-  font-size: 30px;
-  margin-bottom: 1.5rem;
+  font-size: 20px;
+  margin-bottom: .5rem;
 }
 
 .featuring__description {
-  font-size: 17px;
-  width: 60%;
-  margin-bottom: 2rem;
+  font-size: 14px;
   color: var(--muted-color);
+  margin-bottom: 1rem;
 }
 
 .featuring__extra {
@@ -388,6 +427,26 @@ button {
 .featuring__rating--number::after {
   width: 33px;
   height: 33px;
+}
+
+@media screen and (min-width: 1024px) {
+  .featuring__movie--title {
+    font-size: 30px;
+    margin-bottom: 1.5rem;
+  }
+  .featuring__movie {
+    display: flex;
+  }
+  .featuring__image {
+    width: 20%;
+    flex-shrink: 0;
+    margin-right: 2rem;
+  }
+  .featuring__description {
+    font-size: 17px;
+    width: 60%;
+    margin-bottom: 2rem;
+  }
 }
 
 /* MOVIES LIST */
