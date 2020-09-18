@@ -35,7 +35,8 @@ export const renderUsers = (listUsers, $container) => {
 }
 
 export const renderFeaturingMovie = movie => {
-  const { background_image_original: backgroundMovie } = movie
+  console.log(movie)
+  const { background_image_original: backgroundMovie, genres } = movie
   backgroundMovie && document.querySelector('.content__background img').setAttribute('src', backgroundMovie)
   // Evalue class of rating
   let classRating
@@ -49,4 +50,11 @@ export const renderFeaturingMovie = movie => {
   const HTMLString = featuringTemplate(movie, classRating)
   const movieElement = createTemplate(HTMLString)
   $featuringContainer.append(movieElement)
+  const genresContainer = document.querySelector('.featuring__genres')
+  console.log(genresContainer)
+  genres.length > 0 && genres.forEach((genre, index) => {
+    const templateGenre = genres.length === index + 1 ? `<span>${genre}</span>` : `<span>${genre},</span>`
+    const genreElement = createTemplate(templateGenre)
+    genresContainer.append(genreElement)
+  })
 }

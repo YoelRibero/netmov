@@ -1,3 +1,6 @@
+import iconPlay from '../../images/play.svg'
+import iconStar from '../../images/star.svg'
+
 export const createTemplate = HTML => {
   const html = document.implementation.createHTMLDocument()
   html.body.innerHTML = HTML
@@ -13,15 +16,27 @@ export const featuringTemplate = (movie, classRating) => {
           <img src="${movie.large_cover_image}" alt="${movie.title}"/>
         </div>
         <div class="featuring__info">
-          <h3 class="featuring__movie--title">${movie.title}</h3>
-          <p class="featuring__description">${movie.description_full}</p>
+          <h3 class="featuring__movie--title">${movie.title} <span>(${movie.year})</span></h3>
+          <div class="featuring__summary">
+            <span class="featuring__genres"></span>
+            <span class="featuring__time">${movie.runtime} min</span>
+          </div>
           <div class="featuring__extra">
             <div class="featuring__rating">
               <span class="featuring__rating--number ${classRating}">${movie.rating}</span>
             </div>
-            <div class="featuring__genres">
+            <div class="featuring__extra--link">
+              <a href="https://www.youtube.com/watch?v=${movie.yt_trailer_code}" target="_blank">
+                <img src="${iconPlay}" alt="Icon Play"/>
+              </a>
+            </div>
+            <div class="featuring__extra--link">
+              <a href="#" data-id="${movie.id}">
+                <img src="${iconStar}" alt="Icon Star"/>
+              </a>
             </div>
           </div>
+          <p class="featuring__description">${movie.description_full}</p>
         </div>
       </div>
     `
