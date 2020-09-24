@@ -1,5 +1,6 @@
 import iconPlay from '../../images/play.svg'
 import iconStar from '../../images/star.svg'
+import iconDelete from '../../images/delete.svg'
 
 export const createTemplate = HTML => {
   const html = document.implementation.createHTMLDocument()
@@ -8,7 +9,6 @@ export const createTemplate = HTML => {
 }
 
 export const featuringTemplate = (movie, classRating) => {
-  const { genres } = movie
   return (
     `
       <div class="featuring__movie">
@@ -23,7 +23,7 @@ export const featuringTemplate = (movie, classRating) => {
           </div>
           <div class="featuring__extra">
             <div class="featuring__rating">
-              <span class="featuring__rating--number ${classRating}">${movie.rating}</span>
+              <span class="featuring__rating--number ${classRating}">${movie.rating * 10}%</span>
             </div>
             <div class="featuring__extra--link">
               <a href="https://www.youtube.com/watch?v=${movie.yt_trailer_code}" target="_blank">
@@ -31,7 +31,7 @@ export const featuringTemplate = (movie, classRating) => {
               </a>
             </div>
             <div class="featuring__extra--link">
-              <a href="#" data-id="${movie.id}">
+              <a data-id="${movie.id}" id="add-to-fav">
                 <img src="${iconStar}" alt="Icon Star"/>
               </a>
             </div>
@@ -104,6 +104,20 @@ export const templateSearchResults = movie => (
   `
     <li data-name="${movie.title}">
       ${movie.title}
+    </li>
+  `
+)
+
+export const templatePlayList = movie => (
+  `
+    <li class="playList__content">
+      <div class="playList__info">
+        <img src="${movie.small_cover_image}" alt="${movie.title}"/>
+        <h4 class="playList__title">${movie.title}</h4> 
+      </div>
+      <span class="playList__deleted" data-deleted="${movie.id}">
+        <img src="${iconDelete}" alt="Icon Deleted" />
+      </span>
     </li>
   `
 )

@@ -17,5 +17,7 @@ export const $hideModal = document.getElementById('hide-modal')
 export const BASE_API_USERS = 'https://randomuser.me/api'
 export const $usersContainer = document.querySelector('.users__list')
 // Search
-export const search = document.querySelector('#search')
+export const searchForm = document.querySelector('#search')
 export const searchResults = document.querySelector('.search__results')
+// PlayList
+export const playListContainer = document.querySelector('.playList')
