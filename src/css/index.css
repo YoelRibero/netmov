@@ -700,6 +700,42 @@ img {
   margin-bottom: 1rem;
 }
 
+/* NAVBAR MOBILE */
+.navbar__mobile {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--primary-color);
+}
+
+.navbar__mobile ul {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  list-style: none;
+  color: var(--light-color);
+}
+
+.navbar__mobile li {
+  text-align: center;
+}
+
+.navbar__mobile li.active::after {
+  content: '';
+  width: 5px;
+  height: 5px;
+  display: block;
+  background-color: var(--light-color);
+  border-radius: 50%;
+  margin: auto;
+}
+
+.navbar__mobile img {
+  width: 25px;
+  height: 25px;
+}
+
 /* REPONSIVE MOBILE FIRS */
 
 @media screen and (min-width: 768px) {
