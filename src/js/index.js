@@ -1,11 +1,21 @@
 import '../css/index.css'
-import { BASE_API_MOVIES, BASE_API_USERS, $hideModal, $overlay, $usersContainer, searchResults, searchForm, addPlayList } from './utils/vars'
+import {
+  BASE_API_MOVIES,
+  BASE_API_USERS,
+  $hideModal,
+  $overlay,
+  $usersContainer,
+  searchResults,
+  searchForm,
+  navbarItem,
+} from './utils/vars';
 import { getMovies, getUsers } from './utils/API'
 import { moviesGenre } from './utils/moviesGenre'
 import { renderFeaturingMovie, renderMovieList, renderUsers, renderPlayList } from './utils/renders'
 import { hideModal, deleteModalContent } from './components/modal'
 import { search } from './components/search'
 import { cachePlayList } from './components/playList'
+import { navBar } from './components/navbar'
 
 (async function() {
   // Render featuring Movie
@@ -38,4 +48,10 @@ import { cachePlayList } from './components/playList'
   // Playlist
   const myPlayList = cachePlayList()
   renderPlayList(myPlayList)
+  // NavBar Mobile
+  navbarItem.forEach(item => {
+    item.addEventListener('click', () => {
+      navBar(item)
+    })
+  })
 })()

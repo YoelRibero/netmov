@@ -21,3 +21,7 @@ export const searchForm = document.querySelector('#search')
 export const searchResults = document.querySelector('.search__results')
 // PlayList
 export const playListContainer = document.querySelector('.playList')
+// NavBar
+export const navbarItem = document.querySelectorAll('.navbar__mobile li')
+export const sidebarLeft = document.querySelector('.sidebar__left')
+export const sidebarRigth = document.querySelector('.sidebar__rigth')
