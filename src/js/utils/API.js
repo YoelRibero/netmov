@@ -16,7 +16,17 @@ export const getMovies = async url => {
       return movies
     }
   } catch(err) {
-    throw new Error('No se encontró ningún resultado')
+    throw new Error('No results found to movies')
+  }
+}
+
+export const getMovie = async url => {
+  try {
+    const dataMovie = await API(url)
+    const { data: { movie } } = await dataMovie
+    return movie || {}
+  } catch(err) {
+    throw new Error('No results found to movie')
   }
 }
 
@@ -25,6 +35,6 @@ export const getUsers = async url => {
     const { results: users } = await API(url)
     return users
   } catch(err) {
-    console.log(err)
+    throw new Error('No results found to users')
   }
 }

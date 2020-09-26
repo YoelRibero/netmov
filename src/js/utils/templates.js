@@ -102,7 +102,7 @@ export const playlistMovieTemplate = movie => (
 
 export const templateSearchResults = movie => (
   `
-    <li data-name="${movie.title}">
+    <li data-id="${movie.id}">
       ${movie.title}
     </li>
   `

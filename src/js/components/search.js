@@ -1,4 +1,4 @@
-import { getMovies } from '../utils/API'
+import { getMovie, getMovies } from '../utils/API'
 import { BASE_API_MOVIES, searchForm, $featuringTitle, $featuringContainer } from '../utils/vars'
 import { createTemplate, templateSearchResults } from '../utils/templates'
 import { renderFeaturingMovie } from '../utils/renders'
@@ -28,11 +28,11 @@ const dataSearch = (data, $container, element) => {
 
 const searchMovieEvent = async ($container, movieElement) => {
   $container.classList.remove('active')
-  const name = movieElement.dataset.name
-  const movieData = await getMovies(`${BASE_API_MOVIES}/list_movies.json?query_term=${name}`)
+  const id = movieElement.dataset.id
+  const movieData = await getMovie(`${BASE_API_MOVIES}/movie_details.json?movie_id=${id}`)
   $featuringTitle && $featuringTitle.remove()
   $featuringContainer.children[0].remove()
-  renderFeaturingMovie(movieData[0])
+  renderFeaturingMovie(movieData)
   searchForm.reset()
   $container.children[0].remove()
 }

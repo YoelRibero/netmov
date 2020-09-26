@@ -31,6 +31,7 @@ import { cachePlayList } from './components/playList'
   // Search
   searchForm.addEventListener('submit', async e => {
     e.preventDefault()
+    searchResults.children[0] && searchResults.children[0].remove()
     const keyword = searchForm.querySelector('input').value
     search(keyword, searchResults)
   })
