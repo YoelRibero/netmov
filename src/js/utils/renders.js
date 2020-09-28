@@ -1,6 +1,9 @@
 import { $featuringContainer, $featuringTitle, playListContainer } from './vars'
 import { createTemplate, featuringTemplate, movieTemplate, usersTemplate, templatePlayList } from '../utils/templates'
+import { printGenres } from './moviesGenre'
+import { userStatus } from './user'
 import { findMovie } from './findMovie'
+import { classRating } from './classRating'
 import { addPlayList, deleteItemPlaylist } from '../components/playList'
 
 export const renderMovieList = (list, $container, category) => {
@@ -25,9 +28,7 @@ export const renderMovieList = (list, $container, category) => {
 export const renderUsers = (listUsers, $container) => {
   listUsers ? listUsers.forEach(user => {
     // Generate number random for know if user is connected
-    let connected;
-    const random = Math.random()
-    random > 0.5 ? connected = 'connected' : connected = null
+    const connected = userStatus()
     const HTMLString = usersTemplate(user, connected)
     const userElement = createTemplate(HTMLString)
     $container.append(userElement)
@@ -39,24 +40,14 @@ export const renderFeaturingMovie = movie => {
   const { background_image_original: backgroundMovie, genres } = movie
   backgroundMovie && document.querySelector('.content__background img').setAttribute('src', backgroundMovie)
   // Evalue class of rating
-  let classRating
-  if (movie.rating <= 3) {
-    classRating = 'bad'
-  } else if (movie.rating > 3 && movie.rating < 7) {   // move block to function
-    classRating = 'warning'
-  } else {
-    classRating = 'success'
-  }
-  const HTMLString = featuringTemplate(movie, classRating)
+  const classExport = classRating(movie.rating)
+  // Featuring Template
+  const HTMLString = featuringTemplate(movie, classExport)
   const movieElement = createTemplate(HTMLString)
   $featuringContainer.appendChild(movieElement)
   // Add genres to markup
   const genresContainer = document.querySelector('.featuring__genres')
-  genres.length > 0 && genres.forEach((genre, index) => {
-    const templateGenre = genres.length === index + 1 ? `<span>${genre}</span>` : `<span>${genre},</span>`   // move block to function
-    const genreElement = createTemplate(templateGenre)
-    genresContainer.append(genreElement)
-  })
+  printGenres(genresContainer, genres)
   // Add to PlayList
   const addPlayListButton = document.getElementById('add-to-fav')
   addPlayListButton.addEventListener('click', () => {

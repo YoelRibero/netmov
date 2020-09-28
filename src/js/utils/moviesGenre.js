@@ -1,4 +1,5 @@
 import { $dramaContainer, $actionContainer, $comedyContainer, $animationContainer } from '../utils/vars'
+import { createTemplate } from './templates'
 
 export const moviesGenre = [
   {
@@ -18,3 +19,11 @@ export const moviesGenre = [
     container: $animationContainer,
   }
 ]
+
+export const  printGenres = ($container, genres) => {
+  genres.length > 0 && genres.forEach(genre => {
+    const templateGenre = genres[genres.length - 1] === genre ? `<span>${genre}</span>` : `<span>${genre},</span>`
+    const genreElement = createTemplate(templateGenre)
+    $container.append(genreElement)
+  })
+}

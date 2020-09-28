@@ -13,7 +13,7 @@ export const getMovies = async url => {
     const dataMovies = await API(url)
     const { data: { movies, movie_count } } = await dataMovies
     if (movie_count > 0) {
-      return movies
+      return movies || []
     }
   } catch(err) {
     throw new Error('No results found to movies')
@@ -33,7 +33,7 @@ export const getMovie = async url => {
 export const getUsers = async url => {
   try {
     const { results: users } = await API(url)
-    return users
+    return users || []
   } catch(err) {
     throw new Error('No results found to users')
   }

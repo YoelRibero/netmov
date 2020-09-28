@@ -68,30 +68,30 @@ img {
 .sidebar__left, .sidebar__rigth {
   background-color: var(--primary-color);
   position: fixed;
+  top: 0;
+  bottom: 66px;
   z-index: 1;
   overflow: auto;
+  transition: all .3s ease-in;
 }
 
 .sidebar__left {
-  left: 100%;
+  right: 100%;
 }
 
 .sidebar__rigth {
-  right: 100%;
+  left: 100%;
+  right: 0;
 }
 
 .sidebar__left.show {
   left: 0;
-  top: 0;
-  bottom: 66px;
-  right: 10%;
+  right: 15%;
 }
 
 .sidebar__rigth.show {
   right: 0;
-  top: 0;
-  bottom: 66px;
-  left: 10%;
+  left: 15%;
 }
 
 .sidebar__left--title {
@@ -364,7 +364,7 @@ img {
 
 .search__results.active {
   display: block;
-  width: auto;
+  width: 100%;
   max-width: 300px;
   background: var(--light-color);
   border-radius: 3px;
