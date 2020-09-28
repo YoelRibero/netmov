@@ -77,6 +77,7 @@ img {
 
 .sidebar__left {
   right: 100%;
+  left: 0;
 }
 
 .sidebar__rigth {
@@ -181,6 +182,10 @@ img {
   object-fit: cover;
   border-radius: 50%;
   margin-right: 1rem;
+}
+
+.playList__title {
+  margin-right: .2rem;
 }
 
 .playList__deleted img {
@@ -463,6 +468,7 @@ img {
 
 .featuring__extra--link img {
   width: 15px;
+  transition: transform .3s ease-in-out;
 }
 
 .featuring__rating {

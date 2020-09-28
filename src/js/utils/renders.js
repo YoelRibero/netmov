@@ -4,7 +4,8 @@ import { printGenres } from './moviesGenre'
 import { userStatus } from './user'
 import { findMovie } from './findMovie'
 import { classRating } from './classRating'
-import { addPlayList, deleteItemPlaylist } from '../components/playList'
+import { deleteItemPlaylist, movieFavourite, handlePlayList } from '../components/playList'
+import iconStarEmpty from '../../images/star-empty.svg'
 
 export const renderMovieList = (list, $container, category) => {
   $container.children[0].remove()
@@ -37,12 +38,15 @@ export const renderUsers = (listUsers, $container) => {
 }
 
 export const renderFeaturingMovie = movie => {
+  // Check if movie is in PlayList
+  const isFavourite = movieFavourite(movie.id)
+  // Data Movie
   const { background_image_original: backgroundMovie, genres } = movie
   backgroundMovie && document.querySelector('.content__background img').setAttribute('src', backgroundMovie)
   // Evalue class of rating
   const classExport = classRating(movie.rating)
   // Featuring Template
-  const HTMLString = featuringTemplate(movie, classExport)
+  const HTMLString = featuringTemplate(movie, classExport, isFavourite)
   const movieElement = createTemplate(HTMLString)
   $featuringContainer.appendChild(movieElement)
   // Add genres to markup
@@ -51,7 +55,7 @@ export const renderFeaturingMovie = movie => {
   // Add to PlayList
   const addPlayListButton = document.getElementById('add-to-fav')
   addPlayListButton.addEventListener('click', () => {
-    addPlayList(addPlayListButton.dataset.id)
+    handlePlayList(movie.id, addPlayListButton)
   })
 }
 
@@ -65,6 +69,9 @@ export const renderPlayList = list => {
     const movieDeleted = playListElement.querySelector('.playList__deleted')
     movieDeleted.addEventListener('click', () => {
       deleteItemPlaylist(movieDeleted.dataset.deleted)
+      const imgFav = document.querySelector('#add-to-fav img')
+      imgFav.src = iconStarEmpty
+      imgFav.style = ''
     })
   })
 }

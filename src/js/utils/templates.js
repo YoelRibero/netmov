@@ -1,4 +1,5 @@
 import iconPlay from '../../images/play.svg'
+import iconStarEmpty from '../../images/star-empty.svg'
 import iconStar from '../../images/star.svg'
 import iconDelete from '../../images/delete.svg'
 
@@ -8,7 +9,7 @@ export const createTemplate = HTML => {
   return html.body.children[0]
 }
 
-export const featuringTemplate = (movie, classRating) => {
+export const featuringTemplate = (movie, classRating, favorite = false) => {
   return (
     `
       <div class="featuring__movie">
@@ -32,7 +33,7 @@ export const featuringTemplate = (movie, classRating) => {
             </div>
             <div class="featuring__extra--link">
               <a data-id="${movie.id}" id="add-to-fav">
-                <img src="${iconStar}" alt="Icon Star"/>
+                <img src="${favorite ? iconStar : iconStarEmpty}" alt="Icon Star"/>
               </a>
             </div>
           </div>
