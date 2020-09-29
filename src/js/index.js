@@ -19,11 +19,11 @@ import { navBar } from './components/navbar'
 
 (async function() {
   // Render featuring Movie
-  const featuringMovie = await getMovies(`${BASE_API_MOVIES}/list_movies.json?sort=seeds&limit=1`)
+  const featuringMovie = await getMovies(`${BASE_API_MOVIES}/list_movies.json?sort=seeds&limit=1`, 'featuring')
   renderFeaturingMovie(featuringMovie[0])
   // Render Movies by genre
   moviesGenre.forEach(async genre => {
-    const list = await getMovies(`${BASE_API_MOVIES}/list_movies.json?genre=${genre.category}`)
+    const list = await getMovies(`${BASE_API_MOVIES}/list_movies.json?genre=${genre.category}`, genre.category)
     renderMovieList(list, genre.container, genre.category)
   })
   // Render Users
@@ -34,10 +34,10 @@ import { navBar } from './components/navbar'
     hideModal()
     deleteModalContent()
   })
-  $overlay.addEventListener('click', () => {
-    hideModal()
-    deleteModalContent()
-  })
+  // $overlay.addEventListener('click', () => {
+  //   hideModal()
+  //   deleteModalContent()
+  // })
   // Search
   searchForm.addEventListener('submit', async e => {
     e.preventDefault()

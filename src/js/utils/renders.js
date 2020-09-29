@@ -18,7 +18,11 @@ export const renderMovieList = (list, $container, category) => {
       const elementSelected = document.querySelector('.movies__list--item.selected')
       elementSelected && elementSelected.classList.remove('selected')
       movieElement.classList.add('selected')
+      // Scroll Event
+      window.scroll({ top: 0, behavior: 'smooth' })
+      // Search movie
       const movie = await findMovie(movieElement.dataset.id, movieElement.dataset.category)
+      // Print Movie
       $featuringTitle && $featuringTitle.remove()
       $featuringContainer.children[0].remove()
       renderFeaturingMovie(movie)

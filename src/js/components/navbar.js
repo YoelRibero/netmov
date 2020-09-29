@@ -24,6 +24,7 @@ const navEvalue = (item, itemName) => {
     case 'home':
       sidebarLeft.classList.contains('show') && sidebarLeft.classList.remove('show')
       sidebarRigth.classList.contains('show') && sidebarRigth.classList.remove('show')
+      $overlay.classList.contains('active') && $overlay.classList.remove('active')
       break
   }
 }
