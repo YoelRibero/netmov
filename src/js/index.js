@@ -55,5 +55,5 @@ import { navBar } from './components/navbar'
     })
   })
   // Validation link to index.html
-  window.location.indexOf('localhost') ? null : document.querySelector('.nav__item.selected a').setAttribute('href', 'https://yoelribero.github.io/netmov/dist/')
+  window.location.href.indexOf('localhost') > - 1 ? null : document.querySelector('.nav__item.selected a').setAttribute('href', 'https://yoelribero.github.io/netmov/dist/')
 })()
