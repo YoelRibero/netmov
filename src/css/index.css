@@ -167,6 +167,11 @@ img {
 }
 
 /* PLAYLIST */
+.playList ul {
+  color: var(--muted-color);
+  font-size: 12px;
+}
+
 .playList__content {
   display: flex;
   justify-content: space-between;
@@ -189,6 +194,7 @@ img {
 
 .playList__title {
   margin-right: .2rem;
+  font-size: 1rem;
 }
 
 .playList__deleted img {

@@ -65,6 +65,11 @@ export const renderFeaturingMovie = movie => {
 
 export const renderPlayList = list => {
   const ul = document.createElement('ul')
+  if (list.length === 0) {
+    ul.textContent = 'You don´t have movies in your PlayList'
+    playListContainer.append(ul)
+    return false
+  }
   playListContainer.append(ul)
   list.forEach(movie => {
     const HTMLString = templatePlayList(movie)
