@@ -88,17 +88,30 @@
     </main>
     <aside class="sidebar__rigth">
       <div class="wrapper">
-        <section class="user connected">
+        <section class="user" id="main-user">
           <figure class="user__image">
             <img src="./src/images/man.svg" alt="User Avatar">
           </figure>
           <div class="user__info">
-            <span class="user__name">Yoel Ribero</span>
-            <span class="user__social">@riberoyoel</span>
+            <span class="user__name">Login</span>
+            <span class="user__social"></span>
           </div>
         </section>
+        <section class="login">
+          <form>
+            <div class="login__group">
+              <label>User Name:</label>
+              <input type="text" placeholder="User Name" id="user-name">
+            </div>
+            <div class="login__group">
+              <label>Social Network:</label>
+              <input type="text" placeholder="@socialUser" id="user-social">
+            </div>
+            <button>Login</button>
+          </form>
+        </section>
         <section class="user__list">
-          <h4 class="user__list--title">My friends</h4>
+          <h4 class="user__list--title">Users</h4>
           <nav class="users__list">
             <img src="./src/images/loader.svg" alt="Loader">
           </nav>

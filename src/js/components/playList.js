@@ -38,7 +38,7 @@ export const movieFavourite = movieId => {
 export const handlePlayList = (movieId, button) => {
   const isFavourite = movieFavourite(movieId)
   if (!isFavourite) {
-    addPlayList(button.dataset.id)
+    addPlayList(movieId)
     const img = button.querySelector('img')
     img.style.transform = 'rotate(360deg)'
     img.setAttribute('src', iconStar)

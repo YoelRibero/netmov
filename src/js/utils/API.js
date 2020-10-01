@@ -8,7 +8,7 @@ export const API = async url => {
   }
 }
 
-const cacheExist = list => {
+export const cacheExist = list => {
   const dataExist = window.sessionStorage.getItem(list)
   return JSON.parse(dataExist)
 }
