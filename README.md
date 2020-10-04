@@ -7,7 +7,7 @@ _Proyecto app de películas. El mismo debe renderizar películas por categorías
 
 ### Stack
 
-La idea del stack del proyecto es utilizar hacer todo de manera nativa, es por esto que para este proyecto utilicé:
+La idea del stack del proyecto es hacer todo de manera nativa, es por esto que para este proyecto utilicé:
 
 - HTML5
 - CSS3
