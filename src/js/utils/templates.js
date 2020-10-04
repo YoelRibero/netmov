@@ -25,7 +25,7 @@ export const featuringTemplate = (movie, classRating, favorite = false) => {
     `
       <div class="featuring__movie">
         <div class="featuring__image">
-          <img src="${large_cover_image}" alt="${title}"/>
+          <img src="${large_cover_image ? large_cover_image : notFoundImage}" alt="${title}" onerror="this.onerror=null;this.src='${notFoundImage}';"/>
         </div>
         <div class="featuring__info">
           <h3 class="featuring__movie--title">${title} <span>(${year})</span></h3>
@@ -61,7 +61,7 @@ export const movieTemplate = (movie, category) => {
     `
       <div class="movies__list--item" data-id="${id}" data-category="${category}">
         <div class="movies__list--image">
-          <img src="${medium_cover_image ? medium_cover_image : notFoundImage}">
+          <img src="${medium_cover_image ? medium_cover_image : notFoundImage}" onerror="this.onerror=null;this.src='${notFoundImage}';">
         </div>
         <h4 class="movies__list--item-title">
           ${title}
@@ -104,7 +104,7 @@ export const templatePlayList = movie => {
     `
       <li class="playList__content">
         <div class="playList__info">
-          <img src="${small_cover_image}" alt="${title}"/>
+          <img src="${small_cover_image ? small_cover_image : notFoundImage}" alt="${title}" onerror="this.onerror=null;this.src='${notFoundImage}';"/>
           <h4 class="playList__title">${title}</h4> 
         </div>
         <span class="playList__deleted" data-deleted="${id}">
