@@ -2,6 +2,7 @@ import iconPlay from '../../images/play.svg'
 import iconStarEmpty from '../../images/star-empty.svg'
 import iconStar from '../../images/star.svg'
 import iconDelete from '../../images/delete.svg'
+import notFoundImage from '../../images/not-found-image.jpg'
 
 export const createTemplate = HTML => {
   const html = document.implementation.createHTMLDocument()
@@ -60,7 +61,7 @@ export const movieTemplate = (movie, category) => {
     `
       <div class="movies__list--item" data-id="${id}" data-category="${category}">
         <div class="movies__list--image">
-          <img src="${medium_cover_image}">
+          <img src="${medium_cover_image ? medium_cover_image : notFoundImage}">
         </div>
         <h4 class="movies__list--item-title">
           ${title}

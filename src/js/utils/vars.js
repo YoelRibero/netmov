@@ -8,11 +8,8 @@ export const $actionContainer = document.querySelector('#action')
 export const $dramaContainer = document.querySelector('#drama')
 export const $comedyContainer = document.querySelector('#comedy')
 export const $animationContainer = document.querySelector('#animation')
-// Selectors Modals
-export const $modal = document.getElementById('modal')
-export const $modalContent = $modal.querySelector('.modal-content')
+// Selector Overlay
 export const $overlay = document.getElementById('overlay')
-export const $hideModal = document.getElementById('hide-modal')
 // Users
 export const BASE_API_USERS = 'https://randomuser.me/api'
 export const $usersContainer = document.querySelector('.users__list')
