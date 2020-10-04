@@ -24,4 +24,4 @@ Para levantar el proyecto localmente sigue los siguiente pasos
 3. Cuando termine la instalación de los módulos necesarios ejecuta `npm run start`
 4. Te debería abrir `localhost` en el puerto `3000`
 
-_O también puedes verlo directamente [aquí](yoelribero.github.io/netmov/dist/)_
+_O también puedes verlo directamente [aquí](https://yoelribero.github.io/netmov/dist/)_
