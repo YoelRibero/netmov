@@ -11,7 +11,7 @@ Se busca hacer todo de manera nativa, es por esto que en este proyecto utilicé:
 
 - HTML5
 - CSS3
-- Vanilla JavaScript
+- Vanilla JavaScript ES6
 - Webpack
 - Babel
 
