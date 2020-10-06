@@ -406,6 +406,11 @@ img {
   z-index: 2;
 }
 
+.search__results.active ul {
+  max-height: 350px;
+  overflow: auto;
+}
+
 .search__results li {
   list-style: none;
   padding: .5rem;
@@ -429,6 +434,9 @@ img {
   }
   .search__results.active {
     min-width: 300px;
+  }
+  .search__results.active ul {
+    max-height: 450px;
   }
 }
 

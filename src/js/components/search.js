@@ -18,6 +18,8 @@ const dataSearch = (data, $container, element) => {
       const movieElement = createTemplate(HTMLString)
       element.append(movieElement)
       movieElement.addEventListener('click', () => {
+        const elementSelected = document.querySelector('.movies__list--item.selected')
+        elementSelected && elementSelected.classList.remove('selected')
         searchMovieEvent($container, movieElement)
       })
     })
